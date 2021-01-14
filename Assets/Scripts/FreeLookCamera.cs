@@ -40,18 +40,18 @@ public class FreeLookCamera : MonoBehaviour
 
         transform.position += transform.rotation * translate * speed * Time.deltaTime;
 
-        // Ray Cast
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GameObject gameObject = Instantiate(explosion, hitInfo.point, Quaternion.identity);
-                Destroy(gameObject, 3);
-            }
+        //// Ray Cast
+        //Ray ray = new Ray(transform.position, transform.forward);
+        //if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        GameObject gameObject = Instantiate(explosion, hitInfo.point, Quaternion.identity);
+        //        Destroy(gameObject, 3);
+        //    }
 
-            //hitMarker.transform.position = hitInfo.point;
-            //Debug.Log(hitInfo.collider.gameObject);
-        }
+        //    //hitMarker.transform.position = hitInfo.point;
+        //    //Debug.Log(hitInfo.collider.gameObject);
+        //}
     }
 }
