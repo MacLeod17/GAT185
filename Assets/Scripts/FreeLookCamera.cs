@@ -20,13 +20,13 @@ public class FreeLookCamera : MonoBehaviour
 
             transform.eulerAngles += rotate * sensitivity;
 
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.None;
         }
 
         // Quaternion
