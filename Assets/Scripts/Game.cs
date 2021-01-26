@@ -7,14 +7,19 @@ using TMPro;
 public class Game : MonoBehaviour
 {
     public int Score { get; set; } = 0;
+    public int HighScore { get; set; } = 0;
+
     public TextMeshProUGUI scoreUI;
+    public TextMeshProUGUI highScoreUI;
     public TextMeshProUGUI timerUI;
+
     public GameObject startScreen;
+    public GameObject gameOverScreen;
     public AudioSource music;
 
     static Game instance = null;
 
-    float timer = 90.0f;
+    float timer = 60.0f;
 
     public enum eState
     {
@@ -40,10 +45,12 @@ public class Game : MonoBehaviour
                 startScreen.SetActive(true);
                 break;
             case eState.StartGame:
-                timer = 90;
+                timer = 60.0f;
                 Score = 0;
+                scoreUI.text = string.Format("{0:D4}", Score);
                 music?.Play();
                 startScreen.SetActive(false);
+                gameOverScreen.SetActive(false);
                 State = eState.Game;
                 break;
             case eState.Game:
@@ -56,6 +63,7 @@ public class Game : MonoBehaviour
                 }
                 break;
             case eState.GameOver:
+                gameOverScreen.SetActive(true);
                 break;
             default:
                 break;
@@ -73,7 +81,9 @@ public class Game : MonoBehaviour
     public void AddPoints(int points)
     {
         Score += points;
+        if (Score > HighScore) HighScore = Score;
         scoreUI.text = string.Format("{0:D4}", Score);
+        highScoreUI.text = string.Format("{0:D4}", HighScore);
     }
 
     public void StartGame()
