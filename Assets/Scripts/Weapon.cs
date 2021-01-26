@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public float fireRate = 0.1f;
     public Bullet bullet;
 
-    int ammo = 100;
+    //int ammo = 100;
     float fireTimer = 0;
 
     void Start()
@@ -29,10 +29,10 @@ public class Weapon : MonoBehaviour
 
     public bool Fire(Vector3 position, Vector3 direction)
     {
-        if (fireTimer >= fireRate && ammo > 0)
+        if (fireTimer >= fireRate)// && ammo > 0)
         {
             fireTimer = 0;
-            ammo--;
+            //ammo--;
 
             Bullet b = Instantiate(bullet, position, Quaternion.identity);
             b.GetComponent<Bullet>().Fire(direction);

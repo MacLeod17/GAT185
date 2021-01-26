@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
 
     static Game instance = null;
 
-    float timer = 60.0f;
+    float timer = 20.0f;
 
     public enum eState
     {
@@ -29,8 +29,8 @@ public class Game : MonoBehaviour
         GameOver
     }
 
-    //public eState State { get; set; } = eState.Title;
-    public eState State { get; set; } = eState.StartGame;
+    public eState State { get; set; } = eState.Title;
+    //public eState State { get; set; } = eState.StartGame;
 
     private void Awake()
     {
@@ -43,9 +43,10 @@ public class Game : MonoBehaviour
         {
             case eState.Title:
                 startScreen.SetActive(true);
+                gameOverScreen.SetActive(false);
                 break;
             case eState.StartGame:
-                timer = 60.0f;
+                timer = 20.0f;
                 Score = 0;
                 scoreUI.text = string.Format("{0:D4}", Score);
                 music?.Play();

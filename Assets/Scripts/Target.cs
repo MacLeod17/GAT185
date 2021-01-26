@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public int points = 100;
-    public Material material;
+    public int[] points;
+    public Material[] material;
     public GameObject destroyGameObject;
+
+    int targetIndex;
 
     private void Start()
     {
-        GetComponent<Renderer>().material = material;
+        targetIndex = Random.Range(0, points.Length);
+        GetComponent<Renderer>().material = material[targetIndex];
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,7 +24,7 @@ public class Target : MonoBehaviour
             AudioManager.Instance.PlayAudio(0);
 
             // Add Score to Game
-            Game.Instance.AddPoints(points);
+            Game.Instance.AddPoints(points[targetIndex]);
             if (destroyGameObject != null) Destroy(destroyGameObject);
         }
     }
