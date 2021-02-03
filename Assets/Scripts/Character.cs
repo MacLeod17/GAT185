@@ -41,7 +41,10 @@ public class Character : MonoBehaviour
             Quaternion target = Quaternion.LookRotation(direction.normalized);
             transform.rotation = Quaternion.Lerp(transform.rotation, target, Time.deltaTime * 5.0f);
         }
+        // Animator
         animator.SetFloat("Speed", inputDirection.magnitude);
+        animator.SetBool("OnGround", onGround);
+        animator.SetFloat("VelocityY", velocity.y);
 
         // Gravity Movement
         velocity.y += gravity * Time.deltaTime;
@@ -63,5 +66,15 @@ public class Character : MonoBehaviour
         inputDirection = Vector3.zero;
         inputDirection.x = v2.x;
         inputDirection.z = v2.y;
+    }
+
+    public void OnPunch()
+    {
+        animator.SetTrigger("Punch");
+    }
+
+    public void OnThrow()
+    {
+        animator.SetTrigger("Throw");
     }
 }
