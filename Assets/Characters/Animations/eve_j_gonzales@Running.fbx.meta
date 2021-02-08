@@ -59,18 +59,18 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.34035343
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 528357f5a6c712a448c6672086cf0431, type: 3}
-        floatParameter: 0
+      - time: 0.3577949
+        functionName: OnCreate
+        data: LeftFoot
+        objectReferenceParameter: {fileID: 1145017070173210555, guid: 179837e1d75c7dd49bb1a764bf99fe0b, type: 3}
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
-      - time: 0.8660189
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 528357f5a6c712a448c6672086cf0431, type: 3}
-        floatParameter: 0
+      - time: 0.8484761
+        functionName: OnCreate
+        data: RightFoot
+        objectReferenceParameter: {fileID: 1145017070173210555, guid: 179837e1d75c7dd49bb1a764bf99fe0b, type: 3}
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       transformMask: []

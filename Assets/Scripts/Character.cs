@@ -58,6 +58,11 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void OnFire()
+    {
+        Debug.Log("OnFire");
+    }
+
     public void OnJump()
     {
         // Jump
