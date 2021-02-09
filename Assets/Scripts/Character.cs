@@ -26,6 +26,11 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        if (Game.Instance.State == Game.eState.StartGame)
+        {
+            health.health = health.healthMax;
+        }
+
         onGround = characterController.isGrounded;
         if (onGround && velocity.y < 0)
         {
@@ -55,19 +60,24 @@ public class Character : MonoBehaviour
 
         if (health.health <= 0)
         {
+            inputDirection = Vector3.zero;
+            animator.SetFloat("Speed", inputDirection.magnitude);
             animator.SetTrigger("Death");
         }
     }
 
     public void OnFire()
     {
-        weapon.Fire(transform.forward);
+        if (!animator.GetBool("Death") && Game.Instance.State == Game.eState.Game)
+        {
+            weapon.Fire(transform.forward);
+        }
     }
 
     public void OnJump()
     {
         // Jump
-        if (onGround)
+        if (onGround && !animator.GetBool("Death") && Game.Instance.State == Game.eState.Game)
         {
             velocity.y += jump;
         }
@@ -75,19 +85,28 @@ public class Character : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
-        Vector2 v2 = input.Get<Vector2>();
-        inputDirection = Vector3.zero;
-        inputDirection.x = v2.x;
-        inputDirection.z = v2.y;
+        if (!animator.GetBool("Death") && Game.Instance.State == Game.eState.Game)
+        {
+            Vector2 v2 = input.Get<Vector2>();
+            inputDirection = Vector3.zero;
+            inputDirection.x = v2.x;
+            inputDirection.z = v2.y;
+        }
     }
 
     public void OnPunch()
     {
-        animator.SetTrigger("Punch");
+        if (!animator.GetBool("Death") && Game.Instance.State == Game.eState.Game)
+        {
+            animator.SetTrigger("Punch");
+        }
     }
 
     public void OnThrow()
     {
-        animator.SetTrigger("Throw");
+        if (!animator.GetBool("Death") && Game.Instance.State == Game.eState.Game)
+        {
+            animator.SetTrigger("Throw");
+        }
     }
 }

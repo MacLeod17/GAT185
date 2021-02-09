@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public Slider slider;
 
     public float health;
+    float timer = 1.0f;
 
     void Start()
     {
@@ -18,8 +19,18 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        AddHealth(-Time.deltaTime * decay);
-        slider.value = health / healthMax;
+        timer -= Time.deltaTime;
+        if (timer <= 0 && Game.Instance.State == Game.eState.Game)
+        {
+            Game.Instance.AddPoints(5);
+            timer = 1.0f;
+        }
+
+        if (Game.Instance.State == Game.eState.Game)
+        {
+            AddHealth(-Time.deltaTime * decay);
+            slider.value = health / healthMax;
+        }
     }
 
     public void AddHealth(float amount)

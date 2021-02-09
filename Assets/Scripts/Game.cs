@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
     public GameObject gameOverScreen;
     public AudioSource music;
 
+    public GameObject player;
+
     static Game instance = null;
 
     float timer = 20.0f;
@@ -55,12 +57,11 @@ public class Game : MonoBehaviour
                 State = eState.Game;
                 break;
             case eState.Game:
-                timer -= Time.deltaTime;
-                timerUI.text = string.Format("{0:d2}", (int)timer);
-                if (timer <= 0)
+                //IncrementTimer();
+                if (CheckDeath())
                 {
-                    music?.Stop();
                     State = eState.GameOver;
+                    music?.Stop();
                 }
                 break;
             case eState.GameOver:
@@ -82,13 +83,43 @@ public class Game : MonoBehaviour
     public void AddPoints(int points)
     {
         Score += points;
-        if (Score > HighScore) HighScore = Score;
         scoreUI.text = string.Format("{0:D4}", Score);
+
+        //SetHighScore();
+    }
+
+    private void SetHighScore()
+    {
+        if (Score > HighScore) HighScore = Score;
         highScoreUI.text = string.Format("{0:D4}", HighScore);
     }
 
     public void StartGame()
     {
         State = eState.StartGame;
+    }
+
+    private void IncrementTimer()
+    {
+        timer -= Time.deltaTime;
+        timerUI.text = string.Format("{0:d2}", (int)timer);
+        if (timer <= 0)
+        {
+            State = eState.GameOver;
+            music?.Stop();
+        }
+    }
+
+    private bool CheckDeath()
+    {
+        Health playerHealth = player.GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            if (playerHealth.health <= 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -15,7 +15,7 @@ public class HealthPickup : MonoBehaviour
             health.AddHealth(amount);
             if (spawnObject != null)
             {
-                GameObject gameObject = Instantiate(spawnObject, transform.position, transform.rotation, other.transform);
+                GameObject gameObject = Instantiate(spawnObject, other.transform.position, other.transform.rotation, other.transform);
                 Destroy(gameObject, 2);
             }
 
