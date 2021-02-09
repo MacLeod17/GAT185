@@ -6,6 +6,7 @@ using UnityEngine;
 public class Impact : MonoBehaviour
 {
     public float force = 10;
+    public float damage = 10;
 
     SphereCollider sphereCollider;
 
@@ -16,6 +17,12 @@ public class Impact : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Health health = other.GetComponent<Health>();
+        if (health != null)
+        {
+            health.AddHealth(-damage);
+        }
+
         Rigidbody rigidbody = other.GetComponent<Rigidbody>();
         if (rigidbody != null)
         {

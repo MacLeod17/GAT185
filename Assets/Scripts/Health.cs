@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float healthMax;
     public float decay;
     public Slider slider;
+    public bool destroyOnDeath = false;
 
     public float health;
     float timer = 1.0f;
@@ -20,16 +21,27 @@ public class Health : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0 && Game.Instance.State == Game.eState.Game)
+        if (Game.Instance != null)
         {
-            Game.Instance.AddPoints(5);
-            timer = 1.0f;
+            if (timer <= 0 && Game.Instance.State == Game.eState.Game)
+            {
+                Game.Instance.AddPoints(5);
+                timer = 1.0f;
+            }
         }
 
-        if (Game.Instance.State == Game.eState.Game)
+        if (slider != null)
         {
-            AddHealth(-Time.deltaTime * decay);
-            slider.value = health / healthMax;
+            if (Game.Instance.State == Game.eState.Game)
+            {
+                AddHealth(-Time.deltaTime * decay);
+                slider.value = health / healthMax;
+            }
+        }
+
+        if (health <= 0)
+        {
+            if (destroyOnDeath) Destroy(gameObject);
         }
     }
 

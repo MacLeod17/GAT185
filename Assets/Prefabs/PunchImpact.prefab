@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1236941517187759635}
+  - component: {fileID: 7737416766820275236}
   - component: {fileID: 1236941517187759632}
-  m_Layer: 0
+  - component: {fileID: 3835675125876125740}
+  m_Layer: 7
   m_Name: PunchImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7737416766820275236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236941517187759633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f360a9c64e0b6e74eadfcf1f872c7cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 200
+  damage: 10
 --- !u!82 &1236941517187759632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -128,6 +144,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &3835675125876125740
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236941517187759633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1236941517819294595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,9 +164,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1236941517187759635}
     m_Modifications:
+    - target: {fileID: 1209615476248102, guid: ed511b7776af6174e9b1255c7a81e59c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228365099249328, guid: ed511b7776af6174e9b1255c7a81e59c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1809022330002312, guid: ed511b7776af6174e9b1255c7a81e59c, type: 3}
       propertyPath: m_Name
       value: FX_Fire_Explosion_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809022330002312, guid: ed511b7776af6174e9b1255c7a81e59c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4150649967365504, guid: ed511b7776af6174e9b1255c7a81e59c, type: 3}
       propertyPath: m_RootOrder
