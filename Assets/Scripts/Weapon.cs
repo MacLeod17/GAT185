@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float fireRate = 0.1f;
-    public Bullet bullet;
+    [Range(0, 3)] public float fireRate = 0.5f;
+    [Range(0, 100)] public float angle = 10.0f;
 
-    //int ammo = 100;
+    public int ammo = 100;
+    public Projectile projectile;
+    public Transform emitTransform;
+
     float fireTimer = 0;
 
     void Start()
@@ -18,13 +21,6 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         fireTimer += Time.deltaTime;
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            Bullet b = Instantiate(bullet, transform.position, Quaternion.identity);
-            b.GetComponent<Bullet>().Fire(ray.direction);
-        }*/
     }
 
     public bool Fire(Vector3 position, Vector3 direction)
@@ -34,8 +30,24 @@ public class Weapon : MonoBehaviour
             fireTimer = 0;
             //ammo--;
 
-            Bullet b = Instantiate(bullet, position, Quaternion.identity);
-            b.GetComponent<Bullet>().Fire(direction);
+            Projectile b = Instantiate(projectile, position, Quaternion.identity);
+            b.GetComponent<Projectile>().Fire(direction);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool Fire(Vector3 direction)
+    {
+        if (fireTimer >= fireRate)// && ammo > 0)
+        {
+            fireTimer = 0;
+            //ammo--;
+
+            Projectile b = Instantiate(projectile, emitTransform.position, emitTransform.rotation);
+            b.GetComponent<Projectile>().Fire(direction);
 
             return true;
         }

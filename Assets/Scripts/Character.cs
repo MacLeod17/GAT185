@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [Range(0, 20)] public float jump = 1;
     [Range(-20, 20)] public float gravity = -9.8f;
     public Animator animator;
+    public Weapon weapon;
 
     CharacterController characterController;
     bool onGround = false;
@@ -60,7 +61,7 @@ public class Character : MonoBehaviour
 
     public void OnFire()
     {
-        Debug.Log("OnFire");
+        weapon.Fire(transform.forward);
     }
 
     public void OnJump()
