@@ -26,9 +26,12 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (Game.Instance != null && Game.Instance.State == Game.eState.StartGame)
+        if (Game.Instance != null)
         {
-            health.health = health.healthMax;
+            if (Game.Instance.State == Game.eState.StartGame)
+            {
+                health.health = health.healthMax;
+            }
         }
 
         onGround = characterController.isGrounded;

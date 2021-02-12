@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 200
+  damage: 10
+  isRadial: 1
 --- !u!1001 &646776429581725284
 PrefabInstance:
   m_ObjectHideFlags: 0
