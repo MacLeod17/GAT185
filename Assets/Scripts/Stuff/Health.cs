@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Health : MonoBehaviour
     public float decay;
     public Slider slider;
     public GameObject destroySpawnObject;
+    public UnityEvent deathEvent;
     public bool destroyOnDeath = false;
 
     public float health;
@@ -44,6 +46,7 @@ public class Health : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             isDead = true;
+            if (deathEvent != null) deathEvent.Invoke();
             if (destroySpawnObject != null)
             {
                 Instantiate(destroySpawnObject, transform.position, Quaternion.identity);

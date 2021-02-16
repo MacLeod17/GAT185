@@ -11,17 +11,39 @@ public class Character : MonoBehaviour
     [Range(-20, 20)] public float gravity = -9.8f;
     public Animator animator;
     public Weapon weapon;
+    public eSpace space = eSpace.World;
+    public eMovement movement = eMovement.Free;
+    public float turnRate = 3;
+
+    public enum eSpace
+    {
+        World,
+        Camera,
+        Object
+    }
+
+    public enum eMovement
+    {
+        Free,
+        Tank,
+        Strafe
+    }
 
     CharacterController characterController;
-    bool onGround = false;
-    Vector3 inputDirection;
-    Vector3 velocity;
+    Rigidbody rb;
     Health health;
+
+    bool onGround = false;
+    Vector3 inputDirection = Vector3.zero;
+    Vector3 velocity = Vector3.zero;
+    Transform cameraTransform;
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         health = GetComponent<Health>();
+        cameraTransform = Camera.main.transform;
     }
 
     void Update()
@@ -40,18 +62,52 @@ public class Character : MonoBehaviour
             velocity.y = 0;
         }
 
-        Quaternion cameraRotation = Camera.main.transform.rotation;
-        Quaternion rotation = Quaternion.AngleAxis(cameraRotation.eulerAngles.y, Vector3.up);
-        Vector3 direction = rotation * inputDirection;
+        // ***
+
+        Quaternion orientation = Quaternion.identity;
+        switch (space)
+        {
+            case eSpace.World:
+                break;
+            case eSpace.Camera:
+                Vector3 forward = cameraTransform.forward;
+                forward.y = 0;
+                orientation = Quaternion.LookRotation(forward);
+                break;
+            case eSpace.Object:
+                orientation = transform.rotation;
+                break;
+            default:
+                break;
+        }
+
+        Vector3 direction = Vector3.zero;
+        Quaternion rotation = Quaternion.identity;
+        switch (movement)
+        {
+            case eMovement.Free:
+                direction = orientation * inputDirection;
+                rotation = (direction.sqrMagnitude > 0) ? Quaternion.LookRotation(direction) : transform.rotation;
+                break;
+            case eMovement.Tank:
+                direction.z = inputDirection.z;
+                direction = orientation * direction;
+
+                rotation = orientation * Quaternion.AngleAxis(inputDirection.x, Vector3.up);
+                break;
+            case eMovement.Strafe:
+                direction = orientation * inputDirection;
+                rotation = Quaternion.LookRotation(orientation * Vector3.forward);
+                break;
+            default:
+                break;
+        }
+
+        // ***
 
         characterController.Move(direction * speed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, turnRate * Time.deltaTime);
 
-        if (inputDirection.magnitude > 0.1f)
-        {
-            //transform.forward = inputDirection.normalized;
-            Quaternion target = Quaternion.LookRotation(direction.normalized);
-            transform.rotation = Quaternion.Lerp(transform.rotation, target, Time.deltaTime * 5.0f);
-        }
         // Animator
         animator.SetFloat("Speed", inputDirection.magnitude);
         animator.SetBool("OnGround", onGround);

@@ -340,6 +340,9 @@ MonoBehaviour:
   targetTransform: {fileID: 1189882935}
   offset: {x: 0, y: 3, z: -3}
   rate: 3
+  orientToTarget: 0
+  clampYaw: 0
+  cameraRotationX: 180
 --- !u!114 &139089445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +835,9 @@ MonoBehaviour:
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 0}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyOnDeath: 1
   health: 0
 --- !u!1001 &845438409
@@ -1319,6 +1325,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9034464397508532442, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
+      propertyPath: space
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034464397508532442, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
+      propertyPath: movement
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034464397508532442, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
+      propertyPath: turnRate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9034464397508532448, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
       propertyPath: m_Name
       value: Character
@@ -1732,6 +1750,9 @@ MonoBehaviour:
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 648420859475541378, guid: fd9404240103d2446a815210f34f424d, type: 3}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyOnDeath: 1
   health: 0
 --- !u!4 &1386623943 stripped
@@ -1939,6 +1960,9 @@ MonoBehaviour:
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 0}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyOnDeath: 0
   health: 0
 --- !u!4 &1694070635 stripped
@@ -2059,6 +2083,9 @@ MonoBehaviour:
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 648420859475541378, guid: fd9404240103d2446a815210f34f424d, type: 3}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyOnDeath: 1
   health: 0
 --- !u!4 &1872854579 stripped
@@ -2234,6 +2261,9 @@ MonoBehaviour:
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 648420859475541378, guid: fd9404240103d2446a815210f34f424d, type: 3}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyOnDeath: 1
   health: 0
 --- !u!208 &2132930846

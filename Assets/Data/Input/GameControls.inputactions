@@ -140,7 +140,7 @@
                 {
                     "name": "",
                     "id": "6a90caa9-b492-4972-83e4-08aa1ff0c340",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -151,7 +151,7 @@
                 {
                     "name": "",
                     "id": "349fcc59-d43d-4dd6-8939-74cc6ff7a1c2",
-                    "path": "<Keyboard>/f",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -186,7 +186,7 @@
                     "id": "98d70496-8a5c-49d1-9e3a-3dbb1bb476d7",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
-                    "processors": "Scale(factor=0.01),Invert",
+                    "processors": "Scale(factor=0.005),Invert",
                     "groups": "",
                     "action": "Distance",
                     "isComposite": false,
