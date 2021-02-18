@@ -46,7 +46,10 @@ public class Health : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             isDead = true;
-            if (deathEvent != null) deathEvent.Invoke();
+            if (deathEvent != null)
+            {
+                deathEvent.Invoke();
+            }
             if (destroySpawnObject != null)
             {
                 Instantiate(destroySpawnObject, transform.position, Quaternion.identity);

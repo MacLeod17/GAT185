@@ -5,11 +5,13 @@ using UnityEngine;
 public class AttackState : State
 {
     float timer;
+    float attackTimer;
     Vector3 lastTargetPosition;
 
     public override void Enter(Agent owner)
     {
         Debug.Log(GetType().Name + " Enter");
+        attackTimer = Random.Range(0.5f, 2f);
     }
 
     public override void Execute(Agent owner)
@@ -22,6 +24,12 @@ public class AttackState : State
         {
             lastTargetPosition = player.transform.position;
             timer = 1;
+
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0)
+            {
+                ((StateAgent)owner).StateMachine.SetState("AttackMeleeState");
+            }
         }
 
         owner.movement.MoveTowards(lastTargetPosition);

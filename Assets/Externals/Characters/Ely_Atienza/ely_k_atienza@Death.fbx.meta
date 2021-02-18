@@ -1,37 +1,12 @@
 fileFormatVersion: 2
-guid: d21b744e40999b948b26a72a57463c0e
+guid: b0ec340e3f02ac3469c994ffcb821c8b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ely_vanguardsoldier_kerwinatienza_M
-    second: {fileID: 2100000, guid: 2bd2253abf33de44f857d57f5d2aa96c, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: ely-vanguardsoldier-kerwinatienza_diffuse
-    second: {fileID: 2800000, guid: be28c7a8be5558c408b01d9969123540, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: ely-vanguardsoldier-kerwinatienza_glow
-    second: {fileID: 2800000, guid: 4c3a5721d733aed4eafddfc845c14d40, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: ely-vanguardsoldier-kerwinatienza_normal
-    second: {fileID: 2800000, guid: 1402af4ec18367b4586ab775bc434169, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: ely-vanguardsoldier-kerwinatienza_specular
-    second: {fileID: 2800000, guid: ea448642f00b7fa468680abce4b68b26, type: 3}
+    second: Death
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -58,7 +33,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Death
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -100,11 +104,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - b0ec340e3f02ac3469c994ffcb821c8b
-  - 482b736f42125f14c80fca3b1d89236d
-  - 5ae56d30807ad9b499058e3b4cbddbc3
-  - 7a07fd772bbf94a43b3cba7f55523337
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

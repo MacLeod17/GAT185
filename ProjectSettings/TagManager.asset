@@ -15,8 +15,8 @@ TagManager:
   - Player
   - PlayerWeapon
   - PlayerNoHit
-  - 
-  - 
+  - Enemy
+  - EnemyWeapon
   - 
   - 
   - 

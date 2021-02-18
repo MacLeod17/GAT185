@@ -117,12 +117,17 @@ public class Character : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
 
-        if (health.health <= 0)
+        if (health.isDead)
         {
             inputDirection = Vector3.zero;
             animator.SetFloat("Speed", inputDirection.magnitude);
-            animator.SetTrigger("Death");
+            
         }
+    }
+
+    public void OnDeath()
+    {
+        animator.SetTrigger("Death");
     }
 
     public void OnFire()
