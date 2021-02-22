@@ -9,6 +9,7 @@ public class AttackMeleeState : State
     public override void Enter(Agent owner)
     {
         owner.animator.SetTrigger("Melee");
+        owner.movement.Stop();
         timer = 0.9f;
     }
 
@@ -23,6 +24,6 @@ public class AttackMeleeState : State
 
     public override void Exit(Agent owner)
     {
-        //
+        owner.movement.Resume();
     }
 }

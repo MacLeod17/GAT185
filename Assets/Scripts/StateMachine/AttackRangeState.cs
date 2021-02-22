@@ -9,6 +9,7 @@ public class AttackRangeState : State
     public override void Enter(Agent owner)
     {
         owner.animator.SetTrigger("Range");
+        owner.movement.Stop();
         timer = 0.9f;
     }
 
@@ -23,6 +24,6 @@ public class AttackRangeState : State
 
     public override void Exit(Agent owner)
     {
-        //
+        owner.movement.Resume();
     }
 }

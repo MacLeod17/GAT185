@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AttackState : State
 {
+    public float attackTimeMin = 0.5f;
+    public float attackTimeMax = 2f;
+    public float meleeDistance = 4f;
+
     float timer;
     float attackTimer;
     Vector3 lastTargetPosition;
@@ -11,7 +15,7 @@ public class AttackState : State
     public override void Enter(Agent owner)
     {
         Debug.Log(GetType().Name + " Enter");
-        attackTimer = Random.Range(0.5f, 2f);
+        attackTimer = Random.Range(attackTimeMin, attackTimeMax);
     }
 
     public override void Execute(Agent owner)
@@ -28,7 +32,16 @@ public class AttackState : State
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
-                ((StateAgent)owner).StateMachine.SetState("AttackMeleeState");
+                float distance = Vector3.Distance(owner.transform.position, player.transform.position);
+
+                if (distance < meleeDistance)
+                {
+                    ((StateAgent)owner).StateMachine.SetState("AttackMeleeState");
+                }
+                else
+                {
+                    ((StateAgent)owner).StateMachine.SetState("AttackRangeState");
+                }
             }
         }
 

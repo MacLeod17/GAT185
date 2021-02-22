@@ -1305,6 +1305,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 718306011}
     m_Modifications:
+    - target: {fileID: 5322908227935770187, guid: 8bb6df3bd56c0b84c9f3a08e49bc0d26, type: 3}
+      propertyPath: angle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322908227935770187, guid: 8bb6df3bd56c0b84c9f3a08e49bc0d26, type: 3}
+      propertyPath: numRaycast
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5322908227935770192, guid: 8bb6df3bd56c0b84c9f3a08e49bc0d26, type: 3}
       propertyPath: m_Name
       value: Enemy
