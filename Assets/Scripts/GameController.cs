@@ -12,7 +12,9 @@ public class GameController : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    bool isPaused;
+    public int highScore = 0;
+
+    bool isPaused = false;
     float timeScale;
 
     static GameController instance = null;
@@ -32,17 +34,37 @@ public class GameController : MonoBehaviour
     void Start()
     {
         titleScreen.SetActive(true);
+
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        PlayerPrefs.SetInt("HighScore", highScore);
+
+        Debug.Log(highScore);
+    }
+
+    public void SetHighScore(int score)
+    {
+        highScore = score;
+        PlayerPrefs.SetInt("HighScore", highScore);
     }
 
     public void OnLoadGameScene(string scene)
     {
-        SceneManager.LoadScene(scene);
         titleScreen.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        SceneManager.LoadScene(scene);
     }
 
     public void OnLoadMenuScene(string scene)
     {
         titleScreen.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         SceneManager.LoadScene(scene);
     }
 
@@ -65,18 +87,39 @@ public class GameController : MonoBehaviour
             isPaused = false;
             pauseScreen.SetActive(false);
             Time.timeScale = timeScale;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
-        if (!isPaused)
+        else
         {
             isPaused = true;
             pauseScreen.SetActive(true);
             timeScale = Time.timeScale;
             Time.timeScale = 0;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
     public void OnPause()
     {
         OnPauseScreen();
+    }
+
+    public void OnMasterVolume(float level)
+    {
+        audioMixer.SetFloat("MasterVolume", level);
+    }
+
+    public void OnMusicVolume(float level)
+    {
+        audioMixer.SetFloat("MusicVolume", level);
+    }
+
+    public void OnSFXVolume(float level)
+    {
+        audioMixer.SetFloat("SFXVolume", level);
     }
 }

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8a8a3da95e74446b181a3b854d2b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
+  healthMax: 20
   decay: 0
   slider: {fileID: 0}
   destroySpawnObject: {fileID: 0}
