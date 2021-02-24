@@ -16,18 +16,28 @@ public class Health : MonoBehaviour
     public float health;
     public bool isDead { get; set; } = false;
     float timer = 1.0f;
+    bool useSession = false;
 
     void Start()
     {
         health = healthMax;
+        useSession = (GameSession.Instance != null);
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
-        if (Game.Instance != null)
+        if (useSession)
         {
-            if (timer <= 0 && Game.Instance.State == Game.eState.Game)
+            if (timer <= 0 && GameSession.Instance.State == GameSession.eState.Session)
+            {
+                GameSession.Instance.AddPoints(1);
+                timer = 1.0f;
+            }
+        }
+        else
+        {
+            if (timer <= 0)// && Game.Instance.State == Game.eState.Game)
             {
                 Game.Instance.AddPoints(5);
                 timer = 1.0f;
@@ -36,11 +46,8 @@ public class Health : MonoBehaviour
 
         if (slider != null)
         {
-            if (Game.Instance.State == Game.eState.Game)
-            {
                 AddHealth(-Time.deltaTime * decay);
                 slider.value = health / healthMax;
-            }
         }
 
         if (health <= 0 && !isDead)

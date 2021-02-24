@@ -14,11 +14,13 @@ public class GameSession : MonoBehaviour
     public TextMeshProUGUI highScoreUI;
     public TextMeshProUGUI timerUI;
 
-    public GameObject startScreen;
+    public Slider slider;
+
     public UnityEvent startSessionEvents;
     public GameObject gameOverScreen;
 
-    public GameObject player;
+    GameObject player;
+    Health playerHealth;
 
     static GameSession instance = null;
     public static GameSession Instance
@@ -29,7 +31,7 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    float timer = 20.0f;
+    float timer = 40.0f;
 
     public enum eState
     {
@@ -52,14 +54,31 @@ public class GameSession : MonoBehaviour
         switch (State)
         {
             case eState.StartSession:
-                timer = 20.0f;
+                gameOverScreen.SetActive(false);
+                timer = 40.0f;
                 Score = 0;
+                if (player != null)
+                {
+                    Destroy(player);
+                    player = null;
+                }
                 startSessionEvents?.Invoke();
+                if (player == null)
+                {
+                    player = GameObject.FindGameObjectWithTag("Player");
+                    playerHealth = player.GetComponent<Health>();
+                    playerHealth.slider = slider;
+                }
                 State = eState.Session;
                 break;
             case eState.Session:
+                CheckDeath();
+                break;
+            case eState.EndSession:
+                State = eState.GameOver;
                 break;
             case eState.GameOver:
+                gameOverScreen.SetActive(true);
                 break;
             default:
                 break;
@@ -69,37 +88,40 @@ public class GameSession : MonoBehaviour
     public void AddPoints(int points)
     {
         Score += points;
-        scoreUI.text = string.Format("{0:D4}", Score);
+        if (scoreUI != null) scoreUI.text = string.Format("{0:D4}", Score);
 
         //SetHighScore();
+    }
+
+    public void StartSession()
+    {
+        State = eState.StartSession;
     }
 
     private void SetHighScore()
     {
         if (Score > HighScore) HighScore = Score;
-        highScoreUI.text = string.Format("{0:D4}", HighScore);
+        if (highScoreUI != null) highScoreUI.text = string.Format("{0:D4}", HighScore);
     }
 
     private void IncrementTimer()
     {
         timer -= Time.deltaTime;
-        timerUI.text = string.Format("{0:d2}", (int)timer);
+        if (timerUI != null) timerUI.text = string.Format("{0:d2}", (int)timer);
         if (timer <= 0)
         {
-            State = eState.GameOver;
+            State = eState.EndSession;
         }
     }
 
-    private bool CheckDeath()
+    private void CheckDeath()
     {
-        Health playerHealth = player.GetComponent<Health>();
         if (playerHealth != null)
         {
             if (playerHealth.health <= 0)
             {
-                return true;
+                State = eState.EndSession;
             }
         }
-        return false;
     }
 }

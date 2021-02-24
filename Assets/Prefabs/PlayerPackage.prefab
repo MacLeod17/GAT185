@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6472431131738792443}
   - component: {fileID: 6472431131738792440}
   - component: {fileID: 6472431131738792444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -222,9 +222,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6472431132014027983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerPackage
-  m_TagString: Untagged
+  m_TagString: PlayerPackage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,6 +303,14 @@ PrefabInstance:
     - target: {fileID: 9034464397508532452, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034464397508532454, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
+      propertyPath: decay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034464397508532454, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
+      propertyPath: healthMax
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac59152ee8e4e504198d8aad7159e9fc, type: 3}
