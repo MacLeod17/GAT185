@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4362102644028608236}
   - component: {fileID: 4362102644028608239}
   m_Layer: 0
-  m_Name: RedTarget
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ AudioSource:
   m_GameObject: {fileID: 4362102644028608238}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1325957728879997592, guid: 1d8d5723b9e94ba469a55c1c784a2051, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0613a9600cf150c4488503b70998a104, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeeff028647d40e45838a999f0ed911e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioIndex: 0
+  useAudioManager: 1
 --- !u!114 &4362102644028608235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fec8457c56d4ec4cb6bbe42c5ce1a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 100
-  material: {fileID: 2100000, guid: ef7b75b7c68a7d948a568b1030e54a46, type: 2}
+  points: 
+  material:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   destroyGameObject: {fileID: 4362102644028608238}
 --- !u!23 &4362102644028608236
 MeshRenderer:

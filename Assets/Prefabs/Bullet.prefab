@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 2
   speed: 35
+  angle: 0
+  destroyOnHit: 0
+  destroyFX: {fileID: 0}
 --- !u!54 &4800553680211010287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ AudioSource:
   m_GameObject: {fileID: 4800553680211010275}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1325957728879997592, guid: 1d8d5723b9e94ba469a55c1c784a2051, type: 2}
   m_audioClip: {fileID: 8300000, guid: 56633d9ab521dee40bfa5ccc2e49b260, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

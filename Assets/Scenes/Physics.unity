@@ -471,7 +471,7 @@ MonoBehaviour:
   scoreUI: {fileID: 0}
   highScoreUI: {fileID: 0}
   timerUI: {fileID: 0}
-  startScreen: {fileID: 0}
+  slider: {fileID: 0}
   startSessionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -488,7 +488,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gameOverScreen: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &554986292
 GameObject:
   m_ObjectHideFlags: 0

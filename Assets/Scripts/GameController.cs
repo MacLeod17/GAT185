@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject titleScreen;
     public GameObject optionsScreen;
     public GameObject pauseScreen;
+    public Transition transition;
 
     public AudioMixer audioMixer;
 
@@ -54,6 +55,8 @@ public class GameController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //transition.StartTransition(Color.black, 2, scene);
 
         SceneManager.LoadScene(scene);
     }

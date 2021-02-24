@@ -34,6 +34,7 @@ public class Character : MonoBehaviour
     Health health;
 
     bool onGround = false;
+    bool useSession = false;
     Vector3 inputDirection = Vector3.zero;
     Vector3 velocity = Vector3.zero;
     Transform cameraTransform;
@@ -44,11 +45,21 @@ public class Character : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         health = GetComponent<Health>();
         cameraTransform = Camera.main.transform;
+        useSession = (GameSession.Instance != null);
     }
 
     void Update()
     {
-        if (Game.Instance != null)
+        if (animator.GetBool("Death")) return;
+
+        if (useSession)
+        {
+            if (GameSession.Instance.State == GameSession.eState.StartSession)
+            {
+                health.health = health.healthMax;
+            }
+        }
+        else if (Game.Instance != null)
         {
             if (Game.Instance.State == Game.eState.StartGame)
             {
@@ -127,7 +138,7 @@ public class Character : MonoBehaviour
 
     public void OnDeath()
     {
-        animator.SetTrigger("Death");
+        animator.SetBool("Death", true);
     }
 
     public void OnFire()

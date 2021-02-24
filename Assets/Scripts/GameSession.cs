@@ -54,7 +54,7 @@ public class GameSession : MonoBehaviour
         switch (State)
         {
             case eState.StartSession:
-                gameOverScreen.SetActive(false);
+                if (gameOverScreen != null) gameOverScreen.SetActive(false);
                 timer = 40.0f;
                 Score = 0;
                 if (player != null)
@@ -78,7 +78,7 @@ public class GameSession : MonoBehaviour
                 State = eState.GameOver;
                 break;
             case eState.GameOver:
-                gameOverScreen.SetActive(true);
+                if (gameOverScreen != null) gameOverScreen.SetActive(true);
                 break;
             default:
                 break;
