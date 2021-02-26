@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
         {
             if (timer <= 0)// && Game.Instance.State == Game.eState.Game)
             {
-                Game.Instance.AddPoints(5);
+                Game.Instance?.AddPoints(5);
                 timer = 1.0f;
             }
         }
