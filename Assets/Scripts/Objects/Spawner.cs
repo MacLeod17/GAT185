@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     public eType type = eType.TimerRepeat;
 
     float spawnTimer;
+    int spawnCount;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class Spawner : MonoBehaviour
             spawnTimer -= Time.deltaTime;
         }
 
-        if (spawnTimer <= 0)
+        if (spawnTimer <= 0 && (type == eType.TimerRepeat || type == eType.TimerOneTime && spawnCount == 0))
         {
             spawnTimer = Random.Range(spawnTimeMin, spawnTimeMax);
             OnSpawn();
@@ -40,6 +41,7 @@ public class Spawner : MonoBehaviour
 
     public void OnSpawn()
     {
+        spawnCount++;
         Transform parent = (IsSpawnChild) ? transform : null;
         Instantiate(spawnGameObject, transform.position, transform.rotation, parent);
     }

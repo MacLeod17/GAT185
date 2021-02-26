@@ -11,6 +11,7 @@ public class Transition : MonoBehaviour
     public Color color;
     public bool startOnAwake;
 
+    public bool IsDone { get; set; }
     Color startColor;
 
     void Start()
@@ -21,30 +22,29 @@ public class Transition : MonoBehaviour
         }
     }
 
-    public void StartTransition(Color color, float time, string sceneName = "")
+    public void StartTransition(Color color, float time)
     {
         this.color = color;
         this.time = time;
-        startColor = image.color;
 
-        StartCoroutine(TransitionRoutine(this.time, sceneName));
+        startColor = image.color;
+        StartCoroutine(TransitionRoutine(this.time));
     }
 
-    IEnumerator TransitionRoutine(float timer, string sceneName)
+    IEnumerator TransitionRoutine(float timer)
     {
+        IsDone = false;
+
         while (timer > 0)
         {
             timer -= Time.deltaTime;
-            float t = timer / time;
-            image.color = Color.Lerp(color, startColor, t);
+            float t = 1.0f - (timer / time);
+            image.color = Color.Lerp(startColor, color, t);
 
             yield return null;
         }
 
-        if (sceneName != "")
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+        IsDone = true;
 
         yield return null;
     }

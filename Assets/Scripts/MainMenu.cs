@@ -8,10 +8,7 @@ public class MainMenu : MonoBehaviour
     
     void Start()
     {
-        GameController gameController = FindObjectOfType<GameController>();
-        if (gameController == null)
-        {
-            SceneManager.LoadScene("GameController", LoadSceneMode.Additive);
-        }
+        GameController.Instance.OnTitleScreen();
+        GameController.Instance.transition.StartTransition(Color.clear, 1);
     }
 }

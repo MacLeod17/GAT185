@@ -49,6 +49,11 @@ public class GameSession : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         switch (State)
@@ -62,6 +67,8 @@ public class GameSession : MonoBehaviour
                     Destroy(player);
                     player = null;
                 }
+                GameController.Instance.transition.StartTransition(Color.clear, 1);
+                EventManager.Instance.TriggerEvent("StartSession");
                 startSessionEvents?.Invoke();
                 if (player == null)
                 {

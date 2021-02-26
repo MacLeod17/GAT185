@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     float timeScale;
 
     static GameController instance = null;
-    public GameController Instance { 
+    public static GameController Instance { 
         get
         {
             return instance;
@@ -34,13 +34,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        titleScreen.SetActive(true);
-
         highScore = PlayerPrefs.GetInt("HighScore", 0);
 
         PlayerPrefs.SetInt("HighScore", highScore);
-
-        Debug.Log(highScore);
     }
 
     public void SetHighScore(int score)
@@ -51,24 +47,42 @@ public class GameController : MonoBehaviour
 
     public void OnLoadGameScene(string scene)
     {
-        titleScreen.SetActive(false);
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        //transition.StartTransition(Color.black, 2, scene);
+        StartCoroutine(LoadGameScene(scene));
+    }
 
+    IEnumerator LoadGameScene(string scene)
+    {
+        transition.StartTransition(Color.black, 1);
+
+        while (!transition.IsDone) { yield return null; }
+
+        titleScreen.SetActive(false);
         SceneManager.LoadScene(scene);
+
+        yield return null;
     }
 
     public void OnLoadMenuScene(string scene)
     {
-        titleScreen.SetActive(true);
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        StartCoroutine(LoadMenuScene(scene));
+    }
+
+    IEnumerator LoadMenuScene(string scene)
+    {
+        transition.StartTransition(Color.black, 1);
+
+        while (!transition.IsDone) { yield return null; }
+
+        titleScreen.SetActive(true);
         SceneManager.LoadScene(scene);
+
+        yield return null;
     }
 
     public void OnTitleScreen()
