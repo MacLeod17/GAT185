@@ -385,6 +385,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &19209925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4690,6 +4694,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &259305471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7174,6 +7182,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &389069905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7374,6 +7386,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &422622355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7578,6 +7594,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1 &481113403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,6 +7780,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &482854652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9212,6 +9236,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &542094014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13774,6 +13802,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &801166446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14706,6 +14738,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &840301879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14968,6 +15004,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &848336013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15472,6 +15512,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &887111710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16486,6 +16530,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1 &938929834
 GameObject:
   m_ObjectHideFlags: 0
@@ -16521,21 +16569,6 @@ MonoBehaviour:
   highScoreUI: {fileID: 0}
   timerUI: {fileID: 0}
   slider: {fileID: 1753686821}
-  startSessionEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1233618956}
-        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-        m_MethodName: OnSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   gameOverScreen: {fileID: 1361597023}
 --- !u!4 &938929836
 Transform:
@@ -19223,6 +19256,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &1124097730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19995,6 +20032,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &1193182086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21087,6 +21128,10 @@ MonoBehaviour:
   spawnTimeMax: 10000
   IsSpawnChild: 0
   type: 2
+  onSpawnEvent: StartSession
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 0
 --- !u!4 &1233618957
 Transform:
   m_ObjectHideFlags: 0
@@ -23399,6 +23444,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1 &1353395745
 GameObject:
   m_ObjectHideFlags: 0
@@ -23447,6 +23496,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1 &1361597023
 GameObject:
   m_ObjectHideFlags: 0
@@ -26072,6 +26125,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &1499609849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30697,6 +30754,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &1717094783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32242,6 +32303,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &1826212445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35572,6 +35637,10 @@ MonoBehaviour:
   spawnTimeMax: 2
   IsSpawnChild: 1
   type: 0
+  onSpawnEvent: 
+  onActivateEvent: 
+  onDeactivateEvent: 
+  active: 1
 --- !u!1001 &2004491494
 PrefabInstance:
   m_ObjectHideFlags: 0

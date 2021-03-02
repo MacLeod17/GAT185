@@ -16,7 +16,6 @@ public class GameSession : MonoBehaviour
 
     public Slider slider;
 
-    public UnityEvent startSessionEvents;
     public GameObject gameOverScreen;
 
     GameObject player;
@@ -51,7 +50,7 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        
+        EventManager.Instance.Subscribe("PlayerDead", CheckDeath);
     }
 
     private void Update()
@@ -69,7 +68,6 @@ public class GameSession : MonoBehaviour
                 }
                 GameController.Instance.transition.StartTransition(Color.clear, 1);
                 EventManager.Instance.TriggerEvent("StartSession");
-                startSessionEvents?.Invoke();
                 if (player == null)
                 {
                     player = GameObject.FindGameObjectWithTag("Player");

@@ -2310,6 +2310,15 @@ MonoBehaviour:
   pauseScreen: {fileID: 1010443418}
   transition: {fileID: 794792079}
   audioMixer: {fileID: 24100000, guid: 1d8d5723b9e94ba469a55c1c784a2051, type: 2}
+  masterSliders:
+  - {fileID: 928055234}
+  - {fileID: 1336911185}
+  musicSliders:
+  - {fileID: 541368218}
+  - {fileID: 846383164}
+  sfxSliders:
+  - {fileID: 1091699644}
+  - {fileID: 1824213494}
   highScore: 0
 --- !u!4 &794792076
 Transform:

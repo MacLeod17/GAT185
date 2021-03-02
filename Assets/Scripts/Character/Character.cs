@@ -139,6 +139,7 @@ public class Character : MonoBehaviour
     public void OnDeath()
     {
         animator.SetBool("Death", true);
+        EventManager.Instance.TriggerEvent("PlayerDead");
     }
 
     public void OnFire()
