@@ -5,30 +5,32 @@ using UnityEngine.InputSystem;
 
 public class EnemyShip : MonoBehaviour
 {
-    public float speed = 5;
-    public float turnRate = 18;
-    public string targetTag;
+    public EnemyShipData enemyShipData;
 
     Rigidbody rb;
     GameObject targetGameObject;
+    Weapon weapon;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        targetGameObject = GameObject.FindGameObjectWithTag(targetTag);
+        weapon = GetComponent<Weapon>();
+        targetGameObject = GameObject.FindGameObjectWithTag(enemyShipData.targetTag);
     }
 
     void Update()
     {
         Vector3 direction = targetGameObject.transform.position - transform.position;
-        float angle = Vector3.Angle(transform.forward, direction);
+        Vector3 cross = Vector3.Cross(transform.forward, direction.normalized);
 
-        Quaternion rotation = Quaternion.LookRotation(direction);
+        rb.AddTorque(Vector3.up * cross.y * enemyShipData.turnRate);
+        rb.AddRelativeForce(Vector3.forward * enemyShipData.speed);
 
-        //rb.AddTorque(rotation.eulerAngles);
-        //rb.AddTorque(Vector3.up * turnRate * angle);
-        //rb.AddRelativeForce(Vector3.forward * speed);
-
-        rb.AddForce(direction.normalized * speed);
+        if (direction.magnitude < enemyShipData.fireRange)
+        {
+            weapon.Fire(transform.forward);
+        }
     }
+
+
 }

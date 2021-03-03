@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PsychoGoreman.unity
     guid: cff26e09d815b834289f0419b90f7d04
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Physics.unity
     guid: b35c7282c3d06cb48975129386c57077
+  - enabled: 1
+    path: Assets/Scenes/KeepYourDistance.unity
+    guid: a3601f6c171207c4586a6362ae9fa6d4
   m_configObjects: {}
