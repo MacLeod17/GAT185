@@ -5,8 +5,8 @@ using UnityEngine;
 public class RaycastPerception : Perception
 {
     public Transform raycastTransform;
-    [Range(1, 40)] public float distance = 1;
-    [Range(0, 90)] public float angle = 0;
+    [Range(1, 50)] public float distance = 1;
+    [Range(0, 180)] public float angle = 10;
     [Min(2)] public int numRaycast = 2;
 
     public override GameObject[] GetGameObjects()

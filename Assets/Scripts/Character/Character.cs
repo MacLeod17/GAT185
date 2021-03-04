@@ -130,10 +130,14 @@ public class Character : MonoBehaviour
 
         if (health.isDead)
         {
-            inputDirection = Vector3.zero;
-            animator.SetFloat("Speed", inputDirection.magnitude);
-            
+            ResetSpeed();
         }
+    }
+
+    public void ResetSpeed()
+    {
+        inputDirection = Vector3.zero;
+        animator.SetFloat("Speed", inputDirection.magnitude);
     }
 
     public void OnDeath()
@@ -144,7 +148,7 @@ public class Character : MonoBehaviour
 
     public void OnFire()
     {
-        if (!animator.GetBool("Death"))// && Game.Instance.State == Game.eState.Game)
+        if (!animator.GetBool("Death") && GameSession.Instance.State == GameSession.eState.Session)// && Game.Instance.State == Game.eState.Game)
         {
             weapon.Fire(transform.forward);
         }
@@ -153,7 +157,7 @@ public class Character : MonoBehaviour
     public void OnJump()
     {
         // Jump
-        if (onGround && !animator.GetBool("Death"))// && Game.Instance.State == Game.eState.Game)
+        if (onGround && !animator.GetBool("Death") && GameSession.Instance.State == GameSession.eState.Session)// && Game.Instance.State == Game.eState.Game)
         {
             velocity.y += jump;
         }
@@ -161,7 +165,7 @@ public class Character : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
-        if (!animator.GetBool("Death"))// && Game.Instance.State == Game.eState.Game)
+        if (!animator.GetBool("Death") && GameSession.Instance.State == GameSession.eState.Session)// && Game.Instance.State == Game.eState.Game)
         {
             Vector2 v2 = input.Get<Vector2>();
             inputDirection = Vector3.zero;
@@ -172,7 +176,7 @@ public class Character : MonoBehaviour
 
     public void OnPunch()
     {
-        if (!animator.GetBool("Death"))// && Game.Instance.State == Game.eState.Game)
+        if (!animator.GetBool("Death") && GameSession.Instance.State == GameSession.eState.Session)// && Game.Instance.State == Game.eState.Game)
         {
             animator.SetTrigger("Punch");
         }
@@ -180,7 +184,7 @@ public class Character : MonoBehaviour
 
     public void OnThrow()
     {
-        if (!animator.GetBool("Death"))// && Game.Instance.State == Game.eState.Game)
+        if (!animator.GetBool("Death") && GameSession.Instance.State == GameSession.eState.Session)// && Game.Instance.State == Game.eState.Game)
         {
             animator.SetTrigger("Throw");
         }

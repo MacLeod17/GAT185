@@ -10,6 +10,8 @@ public class GameSession : MonoBehaviour
     public int Score { get; set; } = 0;
     public int HighScore { get; set; } = 0;
 
+    public bool useTimer = false;
+
     public TextMeshProUGUI scoreUI;
     public TextMeshProUGUI highScoreUI;
     public TextMeshProUGUI timerUI;
@@ -30,7 +32,7 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    float timer = 40.0f;
+    float timer = 30.0f;
 
     public enum eState
     {
@@ -59,7 +61,7 @@ public class GameSession : MonoBehaviour
         {
             case eState.StartSession:
                 if (gameOverScreen != null) gameOverScreen.SetActive(false);
-                timer = 40.0f;
+                timer = 30.0f;
                 Score = 0;
                 if (player != null)
                 {
@@ -78,8 +80,12 @@ public class GameSession : MonoBehaviour
                 break;
             case eState.Session:
                 CheckDeath();
+                if (useTimer) IncrementTimer();
                 break;
             case eState.EndSession:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                player.GetComponent<Character>().ResetSpeed();
                 State = eState.GameOver;
                 break;
             case eState.GameOver:
@@ -100,7 +106,7 @@ public class GameSession : MonoBehaviour
 
     public void StartSession()
     {
-        State = eState.StartSession;
+        GameController.Instance.OnLoadMenuScene("MainMenu");
     }
 
     private void SetHighScore()

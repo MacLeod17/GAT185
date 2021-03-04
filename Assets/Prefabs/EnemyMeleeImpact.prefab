@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7737416766820275236}
   - component: {fileID: 1236941517187759632}
   - component: {fileID: 3835675125876125740}
+  - component: {fileID: 825381916800332092}
   m_Layer: 10
   m_Name: EnemyMeleeImpact
   m_TagString: Untagged
@@ -158,6 +159,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &825381916800332092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236941517187759633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bee7e78ea02e5243a586042cbedba6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1
 --- !u!1001 &1236941517819294595
 PrefabInstance:
   m_ObjectHideFlags: 0

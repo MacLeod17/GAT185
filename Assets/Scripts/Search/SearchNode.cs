@@ -7,6 +7,13 @@ public abstract class SearchNode : MonoBehaviour
     public static SearchNode GetRandomSearchNode()
     {
         SearchNode[] searchNodes = FindObjectsOfType<SearchNode>();
-        return searchNodes[Random.Range(0, searchNodes.Length)];
+        if (searchNodes.Length > 0)
+        {
+            return searchNodes[Random.Range(0, searchNodes.Length)];
+        }
+        else
+        {
+            return null;
+        }
     }
 }
