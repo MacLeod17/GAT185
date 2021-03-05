@@ -23,7 +23,10 @@ public class EnemyShip : MonoBehaviour
         Vector3 direction = targetGameObject.transform.position - transform.position;
         Vector3 cross = Vector3.Cross(transform.forward, direction.normalized);
 
-        rb.AddTorque(Vector3.up * cross.y * enemyShipData.turnRate);
+        float angle = (Vector3.Dot(direction, transform.forward) > 0) ? cross.y : Mathf.Sign(cross.y);
+        rb.AddTorque(Vector3.up * angle * enemyShipData.turnRate);
+
+        //rb.AddTorque(Vector3.up * cross.y * enemyShipData.turnRate);
         rb.AddRelativeForce(Vector3.forward * enemyShipData.speed);
 
         if (direction.magnitude < enemyShipData.fireRange)
@@ -31,6 +34,4 @@ public class EnemyShip : MonoBehaviour
             weapon.Fire(transform.forward);
         }
     }
-
-
 }

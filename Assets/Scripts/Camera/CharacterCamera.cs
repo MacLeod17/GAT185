@@ -24,7 +24,7 @@ public class CharacterCamera : MonoBehaviour
         //Cursor.visible = false;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         Quaternion rotationBase = (orientToTarget) ? targetTransform.rotation : Quaternion.identity;
         Quaternion rotation = rotationBase * Quaternion.AngleAxis(yaw, Vector3.up) * Quaternion.AngleAxis(pitch, Vector3.right);
