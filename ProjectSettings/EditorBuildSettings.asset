@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SpaceWars.unity
     guid: eac3becfa15b650429fbf675bc366bd5
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9bee04f0f72003044885e53766dc268c
+  - enabled: 1
+    path: Assets/Scenes/GameController.unity
+    guid: 21684e8d8ef709a4593c8f573931fde9
+  - enabled: 1
+    path: Assets/Scenes/KeepYourDistance.unity
+    guid: a3601f6c171207c4586a6362ae9fa6d4
+  - enabled: 1
+    path: Assets/Scenes/Physics.unity
+    guid: b35c7282c3d06cb48975129386c57077
   m_configObjects: {}
